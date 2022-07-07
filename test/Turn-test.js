@@ -28,6 +28,12 @@ describe('Turn', function(){
         expect(turn.guess).to.equal('Frowsebag')
     });
 
+    it('should be able to store a Card', function(){
+        const card = new Card(1, "What is a pejorative word for a talkative, obnoxious cat?", ['Meowsebag', 'Frowsebag', 'Nyannerpuss'], 'Meowsebag')
+        const turn = new Turn('Meowsebag', card);
+        expect(turn.card).to.equal(card)
+    });
+
     it('should be able to return a guess', function(){
         const card = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()")
         const turn = new Turn('map()', card);
@@ -46,11 +52,11 @@ describe('Turn', function(){
         const card = new Card(21, "Which iteration method is best for DOM manipulation?", ["forEach()", "map()", "reduce()"], "forEach()")
         
         const turnTrue = new Turn("forEach()", card);
-        turn.evaluateGuess();
+        turnTrue.evaluateGuess();
         expect(turnTrue.evaluateGuess()).to.equal(true)
 
         const turnFalse = new Turn("map()", card);
-        turn.evaluateGuess();
+        turnFalse.evaluateGuess();
         expect(turnFalse.evaluateGuess()).to.equal(false)
     })
 
@@ -58,12 +64,12 @@ describe('Turn', function(){
         const card = new Card(16, "What does the callback function for reduce() return?", ["the accumulator", "the current element", "the initializer"], "the accumulator")
 
         const turnCorrect = new Turn("the accumulator", card);
-        turn.giveFeedback();
-        expect(turnCorrect.giveFeedback()).to.equal('correct')
+        turnCorrect.giveFeedback();
+        expect(turnCorrect.giveFeedback()).to.equal('correct!')
 
         const turnIncorrect = new Turn("the current element", card);
-        turn.giveFeedback();
-        expect(turnIncorrect.giveFeedback()).to.equal('incorrect')
+        turnIncorrect.giveFeedback();
+        expect(turnIncorrect.giveFeedback()).to.equal('incorrect!')
     });
 
 });
