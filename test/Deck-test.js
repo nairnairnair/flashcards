@@ -14,7 +14,7 @@ describe ('Deck', function(){
         const card7 = new Card(7, "Which array prototype is not an accessor method?", ["join()", "slice()", "splice()"], "splice()")
         const card16 = new Card(16, "What does the callback function for reduce() return?", ["the accumulator", "the current element", "the initializer"], "the accumulator")
         const deck = new Deck([card6, card7, card16]);
-        expect(deck.cardData).to.equal(cardData)
+        expect(deck.cardData).to.deep.equal([card6, card7, card16])
     });
 
     it('should know how many cards are in the deck', function(){
