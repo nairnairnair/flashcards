@@ -6,8 +6,6 @@ describe ('Game', function(){
 
 it('should keep track of the current round', function(){
     expect(this.currentRound).to.equal(null)
-    start()
-    
 })
 
 it('should be able to start a round', function(){

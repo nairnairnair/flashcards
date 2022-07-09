@@ -7,19 +7,21 @@ const util = require('./util');
 
 class Game {
   constructor() {
-    this.currentRound = null
-    this.start()
+    this.currentRound = 0
   }
-
-  start(){
-    var questionArray = prototypeQuestions.map( (card) => {
-      return new Card(card.id, card.question, card.answers, card.correctAnswer) })
+  start(prototypeQuestions){
+    this.currentRound++
+    prototypeQuestions.map((card) => {
+       new Card(card.id, card.question, card.answers, card.correctAnswer) })
+    this.questions = prototypeQuestions
+  let deck = new Deck(prototypeQuestions)
+    this.deck = deck
+  
+    let round = new Round(deck);
+    this.round = round
     
-    let deck = new Deck(questionArray)
-    this.currentRound = new Round(deck)
-    
-    this.printMessage(this.deck, this.currentRound)
-    this.printQuestion(currentRound)
+    this.printMessage(deck, round)
+    this.printQuestion(round)
   }
 
   printMessage(deck, currentRound) {
