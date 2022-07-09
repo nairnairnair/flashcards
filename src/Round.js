@@ -1,6 +1,4 @@
-const Card = require('./Card');
 const Turn = require('./Turn');
-const Deck = require('./Deck');
 
 class Round {
     constructor(deck){
