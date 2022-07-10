@@ -12,14 +12,13 @@ class Game {
   start(prototypeQuestions){
     this.currentRound++
     prototypeQuestions.map((card) => {
-       new Card(card.id, card.question, card.answers, card.correctAnswer) })
+       new Card(card.id, card.question, card.answers, card.correctAnswer) 
+    })
     this.questions = prototypeQuestions
-  let deck = new Deck(prototypeQuestions)
+    let deck = new Deck(prototypeQuestions)
     this.deck = deck
-  
     let round = new Round(deck);
     this.round = round
-    
     this.printMessage(deck, round)
     this.printQuestion(round)
   }
